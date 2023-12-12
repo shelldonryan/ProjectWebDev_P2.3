@@ -6,7 +6,6 @@ app.use(express.urlencoded({extended:true}))
 const admin = require("firebase-admin")
 
 const credentials = require("./key.json")
-const { json } = require('body-parser')
 
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
@@ -20,7 +19,7 @@ app.listen(port, () => {
     console.log(`Servidor iniciado na porta ${port}`)
 })
 
-app.post('/create', async(request, response) => {
+app.post('/create', async(request, response) => {   
     try{
         const user = {
             nome: request.body.nome,
